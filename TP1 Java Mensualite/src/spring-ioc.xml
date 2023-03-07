@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dao" class="DAO.CreditDao"></bean>
+
+    <bean id="metier" class="METIER.CreditMetier">
+        <property name="creditDao" ref="dao"></property>
+    </bean>
+
+    <bean id="controleur" class="PRESENTATION.CreditControleur">
+        <property name="creditMetier" ref="metier"></property>
+    </bean>
+
+</beans>
